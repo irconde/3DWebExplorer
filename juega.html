@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1-8" />
+
+    <title>..:: Ourense 3D - Visita Interactiva ::..</title>
+    
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+     <!--[if IE]><link rel="stylesheet" href="css/style.ie6.css" type="text/css" media="screen" /><![endif]-->
+      
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAwbkbZLyhsmTCWXbTcjbgbRSzHs7K5SvaUdm8ua-Xxy_-2dYwMxQMhnagaawTo7L1FE1-amhuQxIlXw"> </script>
+	<script type="text/javascript" src="js/math3d.js"></script>
+    <script type="text/javascript" src="js/keyboard-focus-hack.js"></script>
+    <script type="text/javascript" src="js/tren.js"></script>
+    
+    <script type="text/javascript">
+    
+    var ge;
+    var fullScreenState = false;
+    var noFullScreenIcon = null;
+    var fullScreenIcon = null;
+    
+    google.load("earth", "1");
+    
+    function el(e) { return document.getElementById(e); }
+    
+    function init() {
+      
+      var content = document.getElementById('map3d');
+      google.earth.createInstance('map3d', initCB, failureCB);
+    }
+    
+    function initCB(instance) {
+      ge = instance;
+      ge.getWindow().setVisibility(true);
+      
+      createFullScreenIcon();
+      createNormalScreenIcon();
+      
+      google.earth.addEventListener(ge.getWindow(), "click", handleMouseClick);
+      addKmlFromUrl('http://localhost/Ourense3D/models/comicModels.kmz');
+      truck = new Truck();
+  	  keyboardFocusHack(ge);
+  	
+  	//Marco hecho con una imagen de Overlay  
+  	
+  	var screenOverlay = ge.createScreenOverlay('');
+    
+    screenOverlay.setVisibility(false);
+    
+    var icon = ge.createIcon('');
+    icon.setHref('http://localhost/Ourense3D/images/frame.png');  
+    screenOverlay.setIcon(icon);
+    
+    var screenXY = screenOverlay.getScreenXY();
+    screenXY.setXUnits(ge.UNITS_PIXELS);
+    screenXY.setYUnits(ge.UNITS_PIXELS);
+    screenXY.setX(0);
+    screenXY.setY(0);
+    
+    var overlayXY = screenOverlay.getOverlayXY();
+    overlayXY.setXUnits(ge.UNITS_PIXELS);
+    overlayXY.setYUnits(ge.UNITS_PIXELS);
+    overlayXY.setX(-1); //Debe ser -1, porque pinta el overlay desplazado 1px a la derecha. Fallo Google
+    overlayXY.setY(0);
+    
+    var overlaySize = screenOverlay.getSize()
+    overlaySize.setXUnits(ge.UNITS_FRACTION);
+    overlaySize.setYUnits(ge.UNITS_FRACTION);
+    overlaySize.setX(1);
+    overlaySize.setY(1);
+    
+    screenOverlay.setVisibility(true);
+    
+    ge.getFeatures().appendChild(screenOverlay);
+
+    }
+
+	function addKmlFromUrl(kmlUrl) {
+  		var link = ge.createLink('');
+ 		 link.setHref(kmlUrl);
+
+  		var networkLink = ge.createNetworkLink('');
+  		networkLink.setLink(link);
+  		networkLink.setFlyToView(false);
+
+  		ge.getFeatures().appendChild(networkLink);
+	}
+
+    function failureCB(errorCode) {
+    }
+
+    function handleMouseClick(event){
+      var INSET_PIXELS_X = document.getElementById("map3d").offsetWidth - event.getClientX();
+      var INSET_PIXELS_Y = event.getClientY();
+      if (INSET_PIXELS_X < 32){
+        if (INSET_PIXELS_Y < 32){ toggleFullScreen();}
+      }
+    }
+
+    function toggleFullScreen(){
+      if (fullScreenState == true) {makeNormalScreen();}
+      else {makeFullScreen();}
+    }
+
+    function makeFullScreen(){
+       var samplecontainer = document.getElementById('fullscreencontainer');
+       var container = document.getElementById('map3d');
+       var hueco = document.getElementById('hueco');
+       container.style.left = 0; 
+       container.style.top = 0;
+       container.style.width = samplecontainer.offsetWidth + 'px'; 
+       container.style.height = samplecontainer.offsetHeight + 'px';
+       hueco.style.height = samplecontainer.offsetHeight + 'px';
+       fullScreenState = true;
+       noFullScreenIcon.setVisibility(fullScreenState);
+       fullScreenIcon.setVisibility(!fullScreenState);  
+    }
+
+    function makeNormalScreen(){
+       var samplecontainer = document.getElementById('sizecontainer');
+       var container = document.getElementById('map3d');
+       var hueco = document.getElementById('hueco');
+       container.style.left = samplecontainer.style.left; 
+       container.style.top = samplecontainer.style.top;
+       container.style.width = samplecontainer.offsetWidth + 'px'; 
+       container.style.height = samplecontainer.offsetHeight + 'px';
+       hueco.style.height = samplecontainer.offsetHeight + 'px';
+       fullScreenState = false;
+       noFullScreenIcon.setVisibility(fullScreenState);
+       fullScreenIcon.setVisibility(!fullScreenState);
+    }
+
+    function createFullScreenIcon() {
+        var icon = ge.createIcon('');
+        icon.setHref('http://localhost/Ourense3D/images/maximizar.png');
+        fullScreenIcon = ge.createScreenOverlay('');
+        fullScreenIcon.setDrawOrder(60);
+        fullScreenIcon.setIcon(icon);
+        
+		fullScreenIcon.getScreenXY().setXUnits(ge.UNITS_FRACTION);
+        fullScreenIcon.getScreenXY().setYUnits(ge.UNITS_FRACTION);
+        fullScreenIcon.getScreenXY().setX(1);
+        fullScreenIcon.getScreenXY().setY(1);
+        
+		fullScreenIcon.getOverlayXY().setXUnits(ge.UNITS_INSET_PIXELS);
+        fullScreenIcon.getOverlayXY().setYUnits(ge.UNITS_INSET_PIXELS);
+        fullScreenIcon.getOverlayXY().setX(1);
+        fullScreenIcon.getOverlayXY().setY(0);
+        
+		fullScreenIcon.getSize().setXUnits(ge.UNITS_PIXELS);
+        fullScreenIcon.getSize().setYUnits(ge.UNITS_PIXELS);
+        fullScreenIcon.getSize().setY(50);
+        fullScreenIcon.getSize().setX(50);
+        
+		ge.getFeatures().appendChild(fullScreenIcon);
+    }
+
+    function createNormalScreenIcon() {
+        
+		var icon = ge.createIcon('');
+        icon.setHref('http://localhost/Ourense3D/images/minimizar.png');
+        
+		noFullScreenIcon = ge.createScreenOverlay('');
+        noFullScreenIcon.setDrawOrder(62);
+        noFullScreenIcon.setIcon(icon);
+        
+		noFullScreenIcon.getScreenXY().setXUnits(ge.UNITS_FRACTION);
+        noFullScreenIcon.getScreenXY().setYUnits(ge.UNITS_FRACTION);
+        noFullScreenIcon.getScreenXY().setX(1);
+        noFullScreenIcon.getScreenXY().setY(1);
+        
+		noFullScreenIcon.getOverlayXY().setXUnits(ge.UNITS_INSET_PIXELS);
+        noFullScreenIcon.getOverlayXY().setYUnits(ge.UNITS_INSET_PIXELS);
+        noFullScreenIcon.getOverlayXY().setX(1);
+        noFullScreenIcon.getOverlayXY().setY(0);
+        
+		noFullScreenIcon.getSize().setXUnits(ge.UNITS_PIXELS);
+        noFullScreenIcon.getSize().setYUnits(ge.UNITS_PIXELS);
+        noFullScreenIcon.getSize().setY(50);
+        noFullScreenIcon.getSize().setX(50);
+        noFullScreenIcon.setVisibility(false);
+        
+		ge.getFeatures().appendChild(noFullScreenIcon);
+    }
+
+    function handleFullScreen(){
+      if (window.innerWidth == screen.width){
+        if (window.innerHeight > screen.height - 10){
+           makeFullScreen();
+        } else if (fullScreenState == true) { makeNormalScreen();}
+      } else {makeNormalScreen();}
+    }
+
+    google.setOnLoadCallback(init);
+    </script>
+
+  </head>
+  
+  <body onresize="handleFullScreen();" onunload="GUnload();" onKeyDown="return keyDown(event);" onKeyUp="return keyUp(event);">
+  
+    <div class="PageBackgroundGradient"></div>
+    <div class="PageBackgroundGlare">
+        <div class="PageBackgroundGlareImage"></div>
+    </div>
+    
+    <div class="Main">
+        <div class="Sheet">
+            <div class="Sheet-tl"></div>
+            <div class="Sheet-tr"><div></div></div>
+            <div class="Sheet-bl"><div></div></div>
+            <div class="Sheet-br"><div></div></div>
+            <div class="Sheet-tc"><div></div></div>
+            <div class="Sheet-bc"><div></div></div>
+            <div class="Sheet-cl"><div></div></div>
+            <div class="Sheet-cr"><div></div></div>
+            <div class="Sheet-cc"></div>
+            <div class="Sheet-body">
+                <div class="Header">
+                    <div class="Header-png-Play"></div>
+                    <div class="Header-jpeg-Play"></div>
+                    <div class="logo"></div>
+                </div>
+                
+                <div class="nav">
+                    <ul class="artmenu">
+                        <li>
+                            <a href="index.html"><span><span>Inicio</span></span></a>
+                        </li>
+                        <li>
+                            <a href="visita.html"><span><span>Visita Fotográfica</span></span></a>
+                        </li>
+                        <li>
+                            <a href="rutas.html"><span><span>Visita Guiada</span></span></a>
+                        </li>
+                        <li>
+                            <a class="active"><span><span>Visita Interactiva</span></span></a>
+                        </li>
+                    </ul>
+                    <div class="l"></div>
+                    <div class="r"><div></div></div>
+                </div><!--nav-->
+                <div class="contentLayout">
+                       <div class="Post">
+                            <div class="Post-body">
+   								
+   								<table align = "center">
+									<tr valign=top>
+										<td>
+											<div id="fullscreencontainer" style="position: absolute; left 20px; width: 850px; height: 480px;"></div>
+ 											<div id="hueco" style="position: relative; width:650px; height: 380px;"></div>
+ 											<div id="sizecontainer" style="position: absolute; left:0px; top:0px; width: 650px; height: 380px;">
+												<div id="map3d" style='height: 100%;'></div>
+											</div>
+										</td>
+										<td width="200px">
+
+                            				<div class="Block">
+                            					<div class="Block-tl"></div>
+                            					<div class="Block-tr"><div></div></div>
+                            					<div class="Block-bl"><div></div></div>
+                            					<div class="Block-br"><div></div></div>
+                            					<div class="Block-tc"><div></div></div>
+                            					<div class="Block-bc"><div></div></div>
+                            					<div class="Block-cl"><div></div></div>
+                            					<div class="Block-cr"><div></div></div>
+                            					<div class="Block-cc"></div>
+                            					<div class="Block-body">
+                                					<div class="BlockHeader">
+                                        				<div class="BlockHeader-text">
+                                            				<b>Ourense3D <font style="color:#a58d4b">Play</font></b>
+                                        				</div>
+                                   
+                                   	 					<div class="l"></div>
+                                    					<div class="r"><div></div></div>
+                                					</div>
+                                
+                                					<div class="BlockContent">
+                                    					<div class="BlockContent-body">
+                                        					<div>
+                                                          		<b><p>Súbete al Tren de las Termas, date una vuelta por 
+                                                          		el casco histórico de la ciudad del agua y descubre Ourense 
+                                                          		como nunca antes lo habías visto</p>
+                                                          		
+                                                          			<p><font style="color:#ffffff">Controles:</font></p>
+                                                          			<ul id="Instrucciones">
+                                                          			<li><font style="font-family:arial; font-size:9pt">Maximiza la ventana de juego haciendo clic en el botón de la esquina.</font></li>
+                                                          			<li><font style="font-family:arial; font-size:9pt">Controla el movimiento del tren con tu teclado. </font></li>
+                                                          			</ul>
+                                                          		</b>
+                                                          		
+                                                          		<p><img src="http://localhost/Ourense3D/images/controles.png"/></p>
+                                                            </div>
+                                    					</div>
+                                					</div>
+                            					</div>
+                        				</div>
+         							</td>
+         						</tr>
+							</table>
+   								
+   								
+   								
+							</div><!--Post-body-->
+						</div><!--Post-->
+				</div> <!--contentLayout-->  
+			</div><!--Sheet-body-->
+   		</div><!--Sheet-->
+  </div><!--Main-->
+  </body>
+</html>
+

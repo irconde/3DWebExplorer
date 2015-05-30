@@ -1,0 +1,9 @@
+body {margin:0; background:#111; padding:5px; font:11px Verdana,Arial}
+#wrapper {width:171px; height: 380px; margin:0px auto; display:block}
+#slideleft {width:131px; height:20px; background:url(../images/scroll-up.gif) center center no-repeat; background-color:#222}
+#slideleft:hover {background-color:#333}
+#slideright {position:relative;width:131px; height:20px; background:#222 url(../images/scroll-down.gif) center center no-repeat}
+#slideright:hover {background-color:#333}
+#slidearea {position:relative; width:131px; height:332px; margin-top:5px; margin-bottom: 5px;overflow:hidden}
+#slider {position:relative; bottom: 0; width:131px}
+#slider img {cursor:pointer; border:1px solid #666; padding:2px;}

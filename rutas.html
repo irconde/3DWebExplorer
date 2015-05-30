@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1-8" />
+  <title>..:: Ourense 3D - Visita Guiada ::..</title>
+
+  <link href="css/styleScrollBarVert.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+  <!--[if IE]><link rel="stylesheet" href="css/style.ie6.css" type="text/css" media="screen" /><![endif]-->
+  <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAsc0UQXoo2BnAJLhtpWCJFBTZdFmpiU8vv3PBIA-hr88t-5BzzxQHZQhPdvo87uTKLcQZyxp0owyGPw"></script>
+  <script type="text/javascript">
+    google.load("earth", "1");
+  </script>
+
+  <script type="text/javascript" src="js/kmldomwalk.js"></script>
+  <script type="text/javascript" src="js/consultaXML2.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  
+</head>
+
+<body onload="init();">
+    <div class="PageBackgroundGradient"></div>
+    <div class="PageBackgroundGlare">
+        <div class="PageBackgroundGlareImage"></div>
+    </div>
+    <div class="Main">
+        <div class="Sheet">
+            <div class="Sheet-tl"></div>
+            <div class="Sheet-tr"><div></div></div>
+            <div class="Sheet-bl"><div></div></div>
+            <div class="Sheet-br"><div></div></div>
+            <div class="Sheet-tc"><div></div></div>
+            <div class="Sheet-bc"><div></div></div>
+            <div class="Sheet-cl"><div></div></div>
+            <div class="Sheet-cr"><div></div></div>
+            <div class="Sheet-cc"></div>
+            <div class="Sheet-body">
+                <div class="Header">
+                    <div class="Header-png-Tour"></div>
+                    <div class="Header-jpeg-Tour"></div>
+                    <div class="logo"></div>
+                </div>
+                <div class="nav">
+                    <ul class="artmenu">
+                        <li>
+                            <a href="index.html"><span><span>Inicio</span></span></a>
+                        </li>
+                        <li>
+                            <a href="visita.html"><span><span>Visita Fotográfica</span></span></a>
+                        </li>
+                        <li>
+                            <a class="active"><span><span>Visita Guiada</span></span></a>
+                        </li>
+                        <li>
+                            <a href="juega.html"><span><span>Visita Interactiva</span></span></a>
+                        </li>
+
+                    </ul>
+                    <div class="l"></div>
+                    <div class="r">
+                    	<div></div>
+                    </div>
+                </div><!--nav-->
+                
+                <div class="contentLayout">
+                        <div class="Post">
+                            <div class="Post-body">
+                        		<table align = "center">
+									<tr valign=top>
+										
+										<td >
+											<div id="wrapper">
+												<div id="slideleft"></div>
+												<div id="slidearea">
+													<div id="slider"></div>
+												</div>
+		    									<div id="slideright"></div>
+			
+											</div>
+                       					</td>
+										
+										<td>
+      										<div id='map3d_container' style='height:380px; width: 650px;'>
+        										<div id='map3d' style='height: 100%;'></div>
+      										</div>
+										</td>
+										
+                       				</tr>
+								</table>
+                        </div><!--Post-body-->
+                     </div><!--Post-->
+                </div><!--contentLayout-->
+			</div><!--Sheet-body-->
+        </div><!--Sheet-->
+        
+    </div><!--Main-->
+    
+</body>
+</html>
+

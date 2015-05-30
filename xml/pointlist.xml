@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<puntos>			
+	<monumento id="0">
+			<nombre>Ayuntamiento</nombre>
+			<descripcion>El edificio actual es obra de Queralt (finales del s. XIX), siguiendo un modelo clasicista. Sin embargo, la historia de la casa consistorial se dilata en el tiempo, ya que con anterioridad hubo otros dos: uno del s. XVI y otro del s. XVII..</descripcion>
+			<imagen>images/thumbnails/Monumentos/BAyuntamiento.jpg</imagen>
+			
+			<latitud>42.33431847863131</latitud>
+			<longitud>-7.863189847543951</longitud>
+			<altitud>0</altitud>
+			<rango>162.83210851763</rango>
+			<inclinacion>85.0362205858941</inclinacion>
+	 	    <encabezado>176.3622332316827</encabezado>
+    </monumento>
+				
+	<monumento id="1">
+			<nombre>Museo Arqueoloxico</nombre>
+			<descripcion>El museo arqueológico provincial de Ourense ocupa el edificio que fue Pazo del Obispo. 
+			Es el conjunto monumental civil románico (declarado Monumento Histórico Artístico en 1931) más completo de los conservados, 
+			testigo fiel del desarrollo de la ciudad (con restos o elementos romanos, góticos, renacentistas, barrocos y modernos) y con 
+			un protagonismo relevante en la organización urbana medieval (el edificio se construyó en el s. XII).</descripcion>
+			<imagen>images/thumbnails/Monumentos/BMuseo.jpg</imagen>
+		
+			<latitud>42.3353033649119</latitud>
+			<longitud>-7.863189273540683</longitud>
+			<altitud>0</altitud>
+			<rango>37.14135394479649</rango>
+			<inclinacion>75.04998410232797</inclinacion>
+	 	    <encabezado>84.534991561499</encabezado>
+	</monumento>
+
+	<monumento id="2">
+			<nombre>Praza Maior</nombre>
+			<descripcion>Centro de la ciudad durante siglos, en ella se celebran ferias, fiestas mayores y todo tipo de actividades 
+			culturales y lúdicas a pesar de las dificultades de su suelo inclinado. Delimitado por un espacio porticado, y con un saliente, 
+			como varanda, en un lateral sólamente dos edificios señoriales: La Cámara Municipal y el Museo arqueológico.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BPrazaMaior.jpg</imagen>
+		
+			<latitud>42.33593155210284</latitud>
+			<longitud>-7.864361095412212</longitud>
+			<altitud>0</altitud>
+			<rango>-70.63038195374971</rango>
+			<inclinacion>85.23650217808819</inclinacion>
+	 	    <encabezado>84.20863498426064</encabezado>
+	</monumento>
+	
+	<monumento id="3">
+			<nombre>Santa Maria Nai</nombre>
+			<descripcion>Su fachada de un barroco contenido (s. XVIII) no revela la importancia de esta iglesia que data de la edad media. 
+			Es posible que fuera el solar de la antigua catedral de Ourense, de que la que solamente quedan unas columnas y sus capiteles 
+			de aspecto marmóreo en la fachada.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BStMariaNai.jpg</imagen>
+		
+			<latitud>42.33547607271463</latitud>
+			<longitud>-7.862867953686148</longitud>
+			<altitud>0</altitud>
+			<rango>120.8436582932675</rango>
+			<inclinacion>58.23700206736164</inclinacion>
+	 	    <encabezado>72.43885099305197</encabezado>
+	</monumento>
+
+	<monumento id="4">
+			<nombre>Praza da Magdalena</nombre>
+			<descripcion>Este tranquilo lugar fue uno de los antiguos cementerios de la ciudad (de lo que dan muestra las lápidas en un lateral). 
+			Hoy está centrada por un hermoso crucero barroco.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BPrazaMagdalena.jpg</imagen>
+		
+			<latitud>42.33578636298813</latitud>
+			<longitud>-7.863200199888524</longitud>
+			<altitud>0</altitud>
+			<rango>-67.96495863151266</rango>
+			<inclinacion>59.72384987635487</inclinacion>
+	 	    <encabezado>34.57648804991162</encabezado>
+	</monumento>
+	
+	<monumento id="5">
+			<nombre>Praza do Trigo</nombre>
+			<descripcion>Antiguo mercado donde se vendía grano, centrado por la Fuente Nueva que sustituyó a otra del s. XVIII. Cercada por pórticos 
+			y casas hidalgas, se prolonga con la Plaza de las Damas, que fue patio de naranjas de la catedral. Magníficas vistas de la puerta 
+			sur de la catedral.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BPrazaTrigo.jpg</imagen>
+		
+			<latitud>42.33582135366308</latitud>
+			<longitud>-7.863064117878964</longitud>
+			<altitud>0</altitud>
+			<rango>-140.1303377377082</rango>
+			<inclinacion>79.3395929635205</inclinacion>
+	 	    <encabezado>59.48619071938503</encabezado>
+	</monumento>
+		
+	<monumento id="6">
+			<nombre>A Catedral</nombre>
+			<descripcion>Catedral románica de transición (s. XII y XIII) con notables influencias compostelanas y del arte cisterciense. 
+			A lo largo de su planta de cruz latina son muchas las antiguas capillas en que nos podemos detener, en especial la del 
+			deambulatorio, donde se conserva un Cristo románico y la capilla del Santo Cristo, la más famosa, situada en el brazo norte de 
+			la catedral.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BCatedral.jpg</imagen>
+		
+			<latitud>42.33639133032862</latitud>
+			<longitud>-7.863127920670863</longitud>
+			<altitud>0</altitud>
+			<rango>88.74092728163534</rango>
+			<inclinacion>63.55272757965673</inclinacion>
+	 	    <encabezado>115.1023081586928</encabezado>
+	</monumento>
+
+	<monumento id="7">
+			<nombre>Santa Eufemia</nombre>
+			<descripcion>Iglesia del antiguo convento jesuítico. Sus obras se comienzan a mediados del s. XVII por fundación personal pero 
+			su fachada , arquetipo del barroco gallego, no se concluye hasta un siglo después. El interior, muy austero, es de planta de cruz 
+			latina. Es la iglesia más amplia de la ciudad después de la catedral.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BStaEufemia.jpg</imagen>
+		
+			<latitud>42.33660068342218</latitud>
+			<longitud>-7.864926843033174</longitud>
+			<altitud>0</altitud>
+			<rango>-99.03388140365583</rango>
+			<inclinacion>63.81328303193003</inclinacion>
+	 	    <encabezado>108.443321198228</encabezado>
+	</monumento>
+
+	<monumento id="8">
+			<nombre>Liceo</nombre>
+			<descripcion>Uno de los pazos urbanos renacentistas más importantes de Galiza (mediados del s. XVI). Desde el s. XIX es sede de 
+			una de las sociedades culturales más antiguas de la urbe: el liceo de Ourense. Vale la pena pedir permiso para ver por lo menos 
+			el patio de columnas con su fuente de mármol de Carrara, obra de Piñeiro.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BLiceo.jpg</imagen>
+		
+			<latitud>42.33630778748554</latitud>
+			<longitud>-7.864346205119617</longitud>
+			<altitud>0</altitud>
+			<rango>-159.4612942956281</rango>
+			<inclinacion>68.76854384481847</inclinacion>
+	 	    <encabezado>40.89574103667974</encabezado>
+	</monumento>
+	
+	<monumento id="9">
+			<nombre>Praza do Ferro</nombre>
+			<descripcion>Antiguo mercado de herramientas, quincalla y potes, centrado por una hermosa fuente barroca. En un lateral,el 
+			brasonado pazo de los Boán (s. XVII).</descripcion>
+			<imagen>images/thumbnails/Monumentos/BPrazaFerro.jpg</imagen>
+		
+			<latitud>42.33775562279268</latitud>
+			<longitud>-7.863119806945079</longitud>
+			<altitud>0</altitud>
+			<rango>-32.63835925778458</rango>
+			<inclinacion>72.28553472156136</inclinacion>
+	 	    <encabezado>34.05816311691789</encabezado>
+	</monumento>
+
+	<monumento id="10">
+			<nombre>Igrexa de Santo Domingo</nombre>
+			<descripcion>Por fundación personal (s. XVII), se construyó este convento dominico. La iglesia actual, curiosamente orientada 
+			al este, de estilo barroco, es lo único que se conserva. Sencilla fachada rematada con espadaña. En el interior, planta de cruz 
+			latina e interesantes retablos barrocos.</descripcion>
+			<imagen>images/thumbnails/Monumentos/BStoDomingo.jpg</imagen>
+		
+			<latitud>42.33882337724093</latitud>
+			<longitud>-7.863409056122024</longitud>
+			<altitud>0</altitud>
+			<rango>-56.88037490192524</rango>
+			<inclinacion>65.16275351904118</inclinacion>
+	 	    <encabezado>58.78560602801969</encabezado>
+	</monumento>
+	
+	
+	<calle id="0">
+			<nombre>Rúa Viriato</nombre>
+			<descripcion>
+			Calle que sirve de enlace entre la Plaza do Ferro y la Rúa dos Fornos. En ella podemos
+			encontrar pequeñas joyas del tapeo como el Bar Fuentefría o el restaurante O Frade.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BViriato.jpg</imagen>
+			
+			<latitud>42.33759824084133</latitud>
+			<longitud>-7.863115050812568</longitud>
+			<altitud>0</altitud>
+			<rango>-64.74967399081974</rango>
+			<inclinacion>76.08799369422373</inclinacion>
+	 	    <encabezado>49.28799376530444</encabezado>
+				
+    </calle>
+	<calle id="1">
+			<nombre>Rúa dos Fornos</nombre>
+			<descripcion>
+				Junto con la Rúa Lepanto, una de las principales calles para ir de tapeo en Ourense. 
+				A través de sus numeros bares de tapas podemos disfrutar de una variada oferta grastronómica:
+				desde nuestros platos típicos tradicionales hasta la cocina más vanguardista.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BFornos.jpg</imagen>
+		
+			<latitud>42.33686807084472</latitud>
+			<longitud>-7.862427689125296</longitud>
+			<altitud>0</altitud>
+			<rango> -24.42174432275193</rango>
+			<inclinacion>69.30357592410053</inclinacion>
+	 	    <encabezado>57.99862884041357</encabezado>
+	</calle>
+
+	<calle id="2">
+			<nombre>Rúa Lepanto</nombre>
+			<descripcion>
+			Zona habitual de tapeo y de copas de la ciudad. En ella podemos empezar la noche degustando
+			unas esquisitas tapas en El Lizarrán o en la taberna O Rocinante y vivir la fiesta ourensana
+			en alguno de sus innumerables pubs.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BLepanto.jpg</imagen>
+		
+			<latitud>42.33709844694951</latitud>
+			<longitud>-7.862839679579012</longitud>
+			<altitud>0</altitud>
+			<rango>168.6392469148435</rango>
+			<inclinacion>86.7255900463708</inclinacion>
+	 	    <encabezado>42.74941314094546</encabezado>
+	</calle>
+	
+	<calle id="3">
+			<nombre>Rúa da Paz</nombre>
+			<descripcion>
+			Una de las arterias culturales de Ourense, donde se eencuentra el único teatro de la ciudad, el 
+			Teatro Principal. Construído en el año 1830 según comenta la leyenda de la ciudad, porque el liberal
+			Santiago Sáez, tuvo problemas para entrar en otro lugar donde se exponían obras de teatro y actos 
+			culturales.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BPaz.jpg</imagen>
+		
+			<latitud>42.33702848015586</latitud>
+			<longitud>-7.863441839111103</longitud>
+			<altitud>0</altitud>
+			<rango>5.792697058186465</rango>
+			<inclinacion>65.16219055131028</inclinacion>
+	 	    <encabezado>45.46722905088472</encabezado>
+	</calle>
+
+	<calle id="4">
+			<nombre>Rúa Juan de Austria</nombre>
+			<descripcion>
+			Situada entres dos de los principales atractivos turísticos de Ourense, la Iglesia de Santa Eufemia,
+			 y la Catedral de San Martiño. En ella podemos encontrar dos cafeterías, ambas instituciones 
+			 hosteleras de la ciudad: el Real y el Latino. 
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BXoanAustria.jpg</imagen>
+		
+			<latitud>42.33668664690774</latitud>
+			<longitud>-7.863616828062163</longitud>
+			<altitud>0</altitud>
+			<rango>101.4638807504539</rango>
+			<inclinacion>79.40655160978101</inclinacion>
+	 	    <encabezado>31.67542610061658</encabezado>
+	</calle>
+
+	<calle id="5">
+			<nombre>Praza do Eironciño dos Cabaleiros</nombre>
+			<descripcion>
+			La recoleta plaza del Cid, más conocida como "Eironciño dos cabaleiros", que como este nombre indica
+			vendría a ser como el barrio aristocrático de Ourense del cual las sucesivas demoliciones apenas han 
+			dejado rastro. 
+			En un lateral una gran casa con balcón de madera del siglo XVI que pertenecía a los Armada y que actualmente
+			es conocido como casa de María Andrea.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BEironcino.jpg</imagen>
+		
+			<latitud>42.33763008784178</latitud>
+			<longitud>-7.863527195120184</longitud>
+			<altitud>0</altitud>
+			<rango>50.70593459470982</rango>
+			<inclinacion>80.85209284763398</inclinacion>
+	 	    <encabezado>49.49329039798641</encabezado>
+	</calle>
+
+	<calle id="6">
+			<nombre>Rúa San Miguel</nombre>
+			<descripcion>
+			Centro de lo que podríamos denominar el Ourense "grastronómico", donde uno va de chiquiteo y
+			 de paso se asoma a los escaparates de los establecimientos restauradores, acoge entre otros 
+			 al restaurante San Miguel, uno de los restaurantes gallegos más afamados.
+			</descripcion>
+			<imagen>images/thumbnails/Calles/BSanMiguel.jpg</imagen>
+		
+			<latitud>42.33761933052727</latitud>
+			<longitud>-7.864081243294535</longitud>
+			<altitud>0</altitud>
+			<rango>82.08740674589726</rango>
+			<inclinacion>69.09922859559114</inclinacion>
+	 	    <encabezado>58.07714409492341</encabezado>
+	</calle>
+</puntos>

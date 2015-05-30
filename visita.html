@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="es">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>..:: Ourense 3D - Visita Fotográfica ::..</title>
+     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+     <link rel="stylesheet" href="css/styleTabs.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/styleScrollBarHor.css" />
+    <!--[if IE]><link rel="stylesheet" href="css/style.ie6.css" type="text/css" media="screen" /><![endif]-->
+   
+
+    
+    <!-- Problema en Internet Explorer para reconocer scripts de tipo application/javascript
+          Utilizar por ahora mejor text/javascript a pesar de estar ya obsoleto
+    -->
+    
+    <script type="text/javascript" src="js/consultaXML.js"></script>
+    <script type="text/javascript" src="js/compressed.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAC6ji2IOC6pyY4yEYZpJ41RRSxgunaLlWLKo0DeyDezlMpXYY7hQhre_shMIUm9MNLUIGRQfpFGxccQ"></script>
+    <script type="text/javascript">
+    		
+			var ge = null;
+			var la;
+			var turning;
+			var frameendEL;
+			var lat;
+			var long;
+			var head;
+			var t;
+			var rang;
+			var networkLink = null;
+			
+			var enabled3D;
+			
+			
+			google.load("earth", "1");
+
+		
+			function init() {
+  				    	 
+  				document.getElementById('locinfo').innerHTML="Conozca mejor Ourense y vuelva a enamorarse de nuestra hermosa ciudad a golpe de click";
+  				google.earth.createInstance("map3d", initCallback, failureCallback);
+  				
+			}
+
+			function initCallback(object) {
+
+  				turning = false;
+  				
+  				ge = object;
+  				
+  				//determinamos la vista inicial al cargar la página y al terminar de cargar el fichero kml 
+  				la = ge.createLookAt('');
+				//Ivan: para rotacion Inicial
+				frameendEL = false;
+				
+			
+				//Cargamos el fichero kmz con los modelos
+				
+				//showKMZ();
+				
+				ge.getLayerRoot().enableLayerById(ge.LAYER_BUILDINGS, true);
+				
+				enabled3D = true;
+
+  				ge.getWindow().setVisibility(true);
+  				
+  				//Creando el marco de la ventana Google Earth 
+	
+				var frameOverlay = ge.createScreenOverlay('');
+    
+    			var icon = ge.createIcon('');
+    			icon.setHref('http://localhost/Ourense3D/images/frameSup.png');  // Loads an gilded picture frame.
+    			frameOverlay.setIcon(icon);
+    
+    			var screenXY = frameOverlay.getScreenXY();
+    			screenXY.setXUnits(ge.UNITS_PIXELS);
+    			screenXY.setYUnits(ge.UNITS_PIXELS);
+    			screenXY.setX(0);
+    			screenXY.setY(0);
+    
+    			var overlayXY = frameOverlay.getOverlayXY();
+   	 			overlayXY.setXUnits(ge.UNITS_PIXELS);
+    			overlayXY.setYUnits(ge.UNITS_PIXELS);
+    			overlayXY.setX(-1); //Debe ser -1, porque pinta el overlay desplazado 1px a la derecha. Fallo Google
+    			overlayXY.setY(0);
+    
+    			var overlaySize = frameOverlay.getSize()
+    			overlaySize.setXUnits(ge.UNITS_FRACTION);
+    			overlaySize.setYUnits(ge.UNITS_FRACTION);
+    			overlaySize.setX(1);
+    			overlaySize.setY(1);
+    
+    			frameOverlay.setVisibility(true);
+    			ge.getFeatures().appendChild(frameOverlay);
+    			
+    			
+    			//Establecemos la velocidad de las transiciones
+				
+				ge.getOptions().setFlyToSpeed(.2);
+				
+				//Establecemos los parámetros del vuelo inicial 
+    			
+    			lat = 42.336813043035;
+  				long = -7.863759470448834;
+  				head = 122.1419692168786;
+  				t = 56.29668941482709;
+  				rang =259.4673097908217;
+  				
+  				//parametros de set: latitude, longitude, altitude, altitudeMode, heading, tilt, range
+  				la.set(lat,long, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, head,t,rang); 
+  				
+  				//Rotacion inicial
+  								
+  				    if (!frameendEL){
+    					toggleFrameendEL();
+    				}
+
+  				ge.getView().setAbstractView(la);
+  				
+				turning = false;
+  				
+ 			}
+
+			function failureCallback(object) {
+			
+			alert("Se ha producido un error. Lo sentimos.");
+			}
+
+			
+			//Ivan: rotacion inicial 
+			
+			function toggleFrameendEL(){
+  				if (!frameendEL){
+  					window.google.earth.addEventListener(ge, 'frameend', zoomAround);
+  					frameendEL = true;
+  				}
+  				else{
+  					google.earth.removeEventListener(ge, 'frameend', zoomAround);
+  					frameendEL = false;
+  				}
+  		  	}
+  
+  			function zoomAround(){
+              
+    			latemp = ge.getView().copyAsLookAt(ge.ALTITUDE_RELATIVE_TO_GROUND);
+    
+    			if ((latemp.getLatitude().toFixed(4) == lat.toFixed(4) && latemp.getLongitude().toFixed(4) == long.toFixed(4))|turning){
+    				turn();
+   					turning = true;
+       			}
+     		}
+  
+  			function turn(){
+  				
+   				ge.getOptions().setFlyToSpeed(5);
+    			head+=.5;
+    			if (head > 360){
+    				head -= 360;
+    			}   
+    			la.setHeading(head);
+    			la.setLatitude(lat);
+    			la.setLongitude(long);
+    			ge.getView().setAbstractView(la);    
+  			}
+  			
+  		
+  			
+  			function switch3D(){
+  			
+  				if (enabled3D)
+  				{
+  					ge.getLayerRoot().enableLayerById(ge.LAYER_BUILDINGS, false);
+  					enabled3D = false;
+  					
+  				}
+  				else
+  				{
+  					ge.getLayerRoot().enableLayerById(ge.LAYER_BUILDINGS, true);
+  					enabled3D = true;
+  				
+  				}
+  			
+  			}
+  			
+  			
+  			
+  			//Función que carga un KMZ
+  			
+  			function showKMZ(){
+				
+
+				
+  				if(!networkLink){
+  				//Creamos un NetworkLink con el kmz
+				
+				var url = 'http://localhost/Ourense3D/models/comicModels.kmz';
+				networkLink = ge.createNetworkLink("");
+				networkLink.setFlyToView(false);  
+
+				// creamos un objeto de tipo Link
+				var link = ge.createLink("");
+				link.setHref(url);
+
+				// asociamos el Link al objeto NetworkLink
+				networkLink.setLink(link);
+
+				// añadimos el NetworkLink al plugin
+				ge.getFeatures().appendChild(networkLink);
+				
+									
+				}
+				else
+				{
+					
+        			ge.getFeatures().removeChild(networkLink); 
+        			networkLink = null;
+        			
+  				}
+  			}
+  			
+			window.onload=function(){
+			
+				showTab(0);
+	    		init();
+			}
+			
+	</script>
+
+
+    <!--[if IE 6]><link rel="stylesheet" href="style.ie6.css" type="text/css" media="screen" /><![endif]-->
+</head>
+<body >
+    <div class="PageBackgroundGradient"></div>
+    <div class="PageBackgroundGlare">
+        <div class="PageBackgroundGlareImage"></div>
+    </div>
+    <div class="Main">
+        <div class="Sheet">
+            <div class="Sheet-tl"></div>
+            <div class="Sheet-tr"><div></div></div>
+            <div class="Sheet-bl"><div></div></div>
+            <div class="Sheet-br"><div></div></div>
+            <div class="Sheet-tc"><div></div></div>
+            <div class="Sheet-bc"><div></div></div>
+            <div class="Sheet-cl"><div></div></div>
+            <div class="Sheet-cr"><div></div></div>
+            <div class="Sheet-cc"></div>
+            <div class="Sheet-body">
+                
+                <div class="Header">
+                    <div class="Header-png-Info"></div>
+                    <div class="Header-jpeg-Info"></div>
+                    <div class="logo"></div>
+                </div>
+                
+                <div class="nav">
+                    <ul class="artmenu">
+                        <li>
+                            <a href="inicio.html"><span><span>Inicio</span></span></a>
+                        </li>
+                        <li>
+                            <a class="active"><span><span>Visita Fotográfica</span></span></a>
+                        </li>
+                        <li>
+                            <a href="rutas.html"><span><span>Visita Guiada</span></span></a>
+                        </li>
+                        <li>
+                            <a href="juega.html"><span><span>Visita Interactiva</span></span></a>
+                        </li>
+                        
+                    </ul>
+                    <div class="l"></div>
+                    <div class="r">
+                    	<div></div>
+                    </div>
+                </div><!--nav-->
+                
+                <div class="contentLayout" style='margin-bottom: 1px;'>
+                        <div class="Post">
+                            <div class="Post-body">
+                        		<table align = "center">
+									<!--primera fila-->
+									<tr valign=top>
+										<td>
+											<div id='map3d_container' style='height: 380px; width: 650px;'>
+        										<div id='map3d' style='height: 100%;'></div>
+      										</div>
+      										<div class="contentTab" >
+												<div id="wrapper">
+													<div id="slideleft"></div>
+													<div id="slidearea">
+														<div id="slider"></div>
+													</div>
+		    										<div id="slideright"></div>
+												</div>
+											</div>
+										    <div id="pestanasScroll">
+												<ul id="toc">
+    												<li id ="pesMonumen" class = "activa"><a onclick ="javascript:showTab(0);"><span><span>Monumentos</span></span></a></li>
+    												<li id ="pesCalles" class = "noActiva"><a onclick ="javascript:showTab(1);"><span><span>Calles</span></span></a></li>
+												</ul>
+  											</div>
+										</td>
+										<td >
+											<div class="Block">
+                            					<div class="Block-tl"></div>
+                            					<div class="Block-tr"><div></div></div>
+                            					<div class="Block-bl"><div></div></div>
+                            					<div class="Block-br"><div></div></div>
+                            					<div class="Block-tc"><div></div></div>
+                            					<div class="Block-bc"><div></div></div>
+                            					<div class="Block-cl"><div></div></div>
+                            					<div class="Block-cr"><div></div></div>
+                            					<div class="Block-cc"></div>
+                            					<div class="Block-body">
+                                					<div class="BlockHeader">
+                                        				<div class="BlockHeader-text">
+                                            				<b>Ourense3D <font style="color:#a58d4b">Info</font></b>
+                                        				</div>
+                                   
+                                   	 					<div class="l"></div>
+                                    					<div class="r"><div></div></div>
+                                					</div>
+                                
+                                					<div class="BlockContent">
+                                    					<div class="BlockContent-body">
+                                        					<div>
+                                                          		<b><p id='locinfo'></p></b>
+                                                            </div>
+
+                                        					<div id="checkbox" class="checkboxActive" onclick="switch3D()">
+                                        						<div class="checkbox-text">
+                                           	 						<b>Modelos 3D</b>
+                                        						</div>
+                                    						</div>
+                                        					
+                                    					</div>
+                                					</div>
+                            					</div>
+                        					</div>
+                        					
+           
+                        				</td>
+                        			</tr>
+                        			<!--segunda fila-->
+
+									<tr>
+										<td>
+
+
+
+										</td>
+									</tr>
+							</table>
+                        </div><!--Post-body-->
+                     </div><!--Post-->
+                </div><!--contentLayout-->
+                
+            </div><!--Sheet-body-->
+        </div><!--Sheet-->
+    </div><!--Main-->
+
+        	
+</body>
+</html>

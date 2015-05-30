@@ -1,0 +1,56 @@
+#pestanasScroll {
+   float:left;
+   width:100%;
+   line-height:normal;
+   font-size: 16px;
+    outline:none;
+  letter-spacing:normal;
+  word-spacing:normal;
+  cursor:pointer;
+   
+} 
+
+#pestanasScroll ul {
+   margin-left:240px; 
+   padding:0;
+   list-style:none;
+} 
+
+#pestanasScroll li {
+   float:left;
+   margin:0 0 0 0px;
+   padding:0;
+   background:url("../images/pestanaDer.gif") no-repeat right top;
+} 
+
+#pestanasScroll a {
+   padding:4px 12px 4px 12px;
+   display:block;
+   background:url("../images/pestanaIz.gif") no-repeat left top;
+   color: #fff;
+   text-decoration: none;
+} 
+
+#pestanasScroll .activa a{
+   background-image:url("../images/pestanaActiva_iz2.gif");
+   color: #000;
+}
+#pestanasScroll .activa{
+   background-image:url("../images/pestanaActiva_der2.gif");
+   font-weight: bold;
+} 
+
+.contentTab {
+
+    background-image:url("../images/frameInf.jpg");
+    background-repeat:no-repeat;
+    clear: left;
+    padding: 5px;
+    height: 106px;
+    vertical-align: middle;
+
+}
+
+
+
+

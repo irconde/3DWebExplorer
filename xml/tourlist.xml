@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<tours>
+	<tour id='0'>
+			<nombre>Monumental Tour</nombre>
+			<url>http://localhost/Ourense3D/tours/MonumentalTour.kmz</url>
+			<imagen>images/thumbnails/Tours/BTourMonumental.jpg</imagen>
+	</tour>
+	<tour id='1'>
+			<nombre>Tapas Tour</nombre>
+			<url>http://localhost/Ourense3D/tours/TapasTour.kmz</url>
+			<imagen>images/thumbnails/Tours/BTourTapas.jpg</imagen>
+   </tour>
+   <tour id='2'>
+			<nombre>Shopping Tour</nombre>
+			<url>http://localhost/Ourense3D/tours/ShoppingTour.kmz</url>
+			<imagen>images/thumbnails/Tours/BTourCompras.jpg</imagen>
+   </tour>
+   <tour id='3'>
+			<nombre>Religious Tour</nombre>
+			<url>http://localhost/Ourense3D/tours/ReligiousTour.kmz</url>
+			<imagen>images/thumbnails/Tours/BTourReligioso.jpg</imagen>
+   </tour>
+</tours>
